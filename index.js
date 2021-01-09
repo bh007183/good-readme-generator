@@ -39,31 +39,27 @@ inquirer.prompt([
         name: "license",
         type: "checkbox",
         message: "Select what license you application is under.",
-        choices: ["None", "MIT", "GPL"]
+        choices: ["None", "MIT"]
     },
     {
         name: "github",
         type: "input",
-        message: "Enter github username and add link.",
+        message: "Enter github username.",
         
     },
     {
         name: "email",
         type: "input",
-        message: "Enter email address and add link.",
+        message: "Enter email address.",
     },
 ]).then(function(response){
     fs.writeFile("README.md", generateMarkdown(response), function(err){
-    if(err){
-        console.log("error")
-    }else{
-        console.log("Mission Accomplished")
-    }
+        if(err){
+            console.log("error")
+        }
     })
 })
 
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
 // function init() {}

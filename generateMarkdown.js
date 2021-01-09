@@ -2,19 +2,18 @@
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-// function renderLicenseBadge(x) {
-//     if ((JSON.stringify(x.license)) === ["MIT"]){
-    
-//       return `${![NPM]("https://img.shields.io/npm/l/MIT?style=plastic")}`
+function renderLicenseBadge(x) {
+  console.log(x.license)
+    if ((JSON.stringify(x.license)) === JSON.stringify(["MIT"])){
+  return ` 
+  ## License
+  
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></img></a>`
       
-//    }
-//     if (x.license === "GPL"){
-//       return `![Eclipse]("https://img.shields.io/eclipse-marketplace/l/GPL")`
-      
-//     // }else{
-//     //   return`"`
-//     // }
-// }
+   }else{
+      return``
+    }
+}
 
   
   
@@ -28,15 +27,18 @@
   
   // TODO: Create a function to generate markdown for README
   function generateMarkdown(data) {
-    // renderLicenseBadge(data)
+    
   return `
   # ${data.title}
 
-  ## License
-  ${![data.license]("https://img.shields.io/badge/license-MIT-green.svg")}
+  ${renderLicenseBadge(data)}
+
   ## Description
 
   ${data.description}
+
+  ## Images
+
   
   ## Table of Content
 
@@ -70,8 +72,8 @@
 
   ## Questions/Contact
 
-  ${data.email}
-  ${data.github}
+  <a href="https://github.com/${data.email}">GitHub Profile</a>
+  <a href="mailto:${data.github}"> Email Me</a>
   
   
 
